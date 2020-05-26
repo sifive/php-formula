@@ -36,7 +36,7 @@ include:
 
 build-pkgs:
   pkg.installed:
-    - pkgs: {{ php.build_pkgs }}
+    - pkgs: {{ php.build_pkgs|yaml }}
 
 git:
   pkg.installed: []
