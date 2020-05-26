@@ -21,7 +21,7 @@ php-mongo:
 
 build_pkgs:
   pkg.installed:
-    - pkgs: {{ php.build_pkgs }}
+    - pkgs: {{ php.build_pkgs|yaml }}
 
 php-mongo-conf:
   file.managed:
