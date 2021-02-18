@@ -2685,7 +2685,7 @@
     {%- set useversion = php_version | replace('.', '-') -%}
     {#- Red Hat Softwarecollection prefix lookup belongs to the Red Hat part
        further down but has to go here due to Jinja parsing rules. -#}
-    {%- if salt['pillar.get']('php:use_scl_repo', False) -%}
+    {%- if salt['pillar.get']('php:use_scl_pkgs', False) -%}
       {%- set rh_prefix = 'rh-php{}-'.format(salt['pillar.get']('php:scl_php_version', '')) -%}
       {%- set sclo_prefix = 'sclo-php{}-'.format(salt['pillar.get']('php:scl_php_version', '')) -%}
       {%- set path_suffix = 'opt/rh/rh-php{}/'.format(salt['pillar.get']('php:scl_php_version', '')) -%}
@@ -2951,7 +2951,7 @@
                     'net-smtp': 'php-pear-Net-SMTP',
                     'net4': 'php-pear-Net-IPv4',
                     'oauth': 'php-pecl-oauth',
-                    'opcache': rh_prefix + 'php-opcache' if salt['pillar.get']('php:use_scl_repo', False) else 'php-pecl-zendopcache',
+                    'opcache': rh_prefix + 'php-opcache' if salt['pillar.get']('php:use_scl_pkgs', False) else 'php-pecl-zendopcache',
                     'pear': rh_prefix + 'php-pear',
                     'pgsql': rh_prefix + 'php-pgsql',
                     'php': rh_prefix + 'php',

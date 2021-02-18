@@ -88,6 +88,7 @@ php_ppa_{{ state }}:
   {% endif %}
 {% elif grains['os_family'] == "RedHat" and (state == 'cli' or state == 'fpm' or state == 'php') %}
   {% set use_scl_repo = salt['pillar.get']('php:use_scl_repo', False) %}
+  {% set use_scl_pkgs = salt['pillar.get']('php:use_scl_pkgs', use_scl_repo) %}
   {% set scl_php_version = salt['pillar.get']('php:scl_php_version', 71) %}
   {% set enable_php_repo = salt['pillar.get']('php:lookup:enable_php_repo', False) %}
   {% if use_scl_repo and grains['os'] == 'CentOS' %}
